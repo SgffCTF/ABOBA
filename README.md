@@ -1,39 +1,39 @@
 # ABOBA | CTF Attack-Defense Checksystem
 
-Система для проведения соревнований CTF формата Attack-Defense
+System for CTF competitions in the Attack-Defense format
 
-## Ахитектурная диаграмма
+## Architecture diagram
 
 ![](docs/arch.png)
 
-## Описание компонентов
+## Component description
 
 **board-srv**
-- Отдаёт скорборд
-  - Очки по сервисам
-  - Количество сданных/потерянных флагов по сервисам
-  - SLA по сервисам
-  - Сумму очков
-  - Сложность у сервисов
-  - Авторов сервисов
-  - Текущее время раунда
-- Отдаёт атак дату
+- Returns the scoreboard
+  - Points per service
+  - Number of submitted/lost flags per service
+  - Service SLAs
+  - Total score
+  - Service difficulties
+  - Service authors
+  - Current round time
+- Returns attack-data
 
 **score-srv**
-- Начисляет баллы по заданной формуле или формуле по умолчанию
-- Принимает флаги от команд
-- Валидирует запросы на сдачу флагов по командному токену
-- Детектит First Blood'ы команд и фиксирует информацию об этом
-- Фиксация логов о сдаче флагов (какая команда, флаг от какого сервиса, во сколько сдала)
+- Calculates scores using either a custom formula or the default one
+- Accepts flags from teams
+- Validates flag submissions using team tokens
+- Detects First Bloods and records them
+- Logs flag submissions (which team, from which service, and at what time)
 
 **admin-srv**
-- Добавление/удаление команды во время соревнования
-- Пауза/возобновление соревнования
-- Экспорт результатов соревнования
-- Ручное начисление/списание баллов
+- Add/remove teams during the competition
+- Pause/resume the competition
+- Export competition results
+- Manually adjust scores (add or remove points)
 
 **checksystem**
-- Запуск чекеров на всех сервисах всех команд в отдельных потоках раз в N времени
-- Запись информации об работоспособности сервисов
-- Генерация флагов и отправка их в чекер
-- Проверка флагов
+- Runs checkers on all services of all teams in separate threads every N seconds
+- Records service availability
+- Generates flags and sends them to the checker
+- Verifies submitted flags
