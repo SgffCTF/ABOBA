@@ -36,4 +36,4 @@ System for CTF competitions in the Attack-Defense format
 - Runs checkers on all services of all teams in separate threads every N seconds
 - Records service availability
 - Generates flags and sends them to the checker
-- Verifies submitted flags
+- Verifies flags previously set in services
