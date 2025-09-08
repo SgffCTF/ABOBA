@@ -33,7 +33,7 @@ System for CTF competitions in the Attack-Defense format
 - Manually adjust scores (add or remove points)
 
 **checksystem**
-- Runs checkers on all services of all teams in separate threads every N seconds
+- The game loop starts checkers on all services of all teams and awards points for each round
 - Records service availability
 - Generates flags and sends them to the checker
 - Verifies flags previously set in services
